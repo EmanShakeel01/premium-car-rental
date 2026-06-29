@@ -1,0 +1,1 @@
+export { Cars as default } from './_stubs'
