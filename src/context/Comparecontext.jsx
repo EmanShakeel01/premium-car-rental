@@ -1,7 +1,6 @@
 import { createContext, useContext, useState } from 'react'
 
 const CompareContext = createContext()
-
 const MAX_COMPARE = 3
 
 export function CompareProvider({ children }) {
