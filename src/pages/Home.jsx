@@ -5,15 +5,15 @@ import CarCard from '../components/CarCard'
 import cars from '../data/cars.json'
 
 const categories = [
-  { label: 'Wedding Cars', icon: '💍' },
-  { label: 'Luxury Cars',  icon: '👑' },
-  { label: 'Sports Cars',  icon: '🏎' },
-  { label: 'SUVs',         icon: '🚙' },
-  { label: 'Sedans',       icon: '🚗' },
-  { label: 'Economy Cars', icon: '💰' },
-  { label: 'Electric Vehicles', icon: '⚡' },
-  { label: 'Limousines',   icon: '🎩' },
-  { label: 'Vans & Minibuses', icon: '🚐' },
+  { label: 'Wedding Cars', image: 'https://images.unsplash.com/photo-1631295868223-63265b40d9e4?w=400&q=80' },
+  { label: 'Luxury Cars', image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=400&q=80' },
+  { label: 'Sports Cars', image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&q=80' },
+  { label: 'SUVs', image: 'https://images.unsplash.com/photo-1519752594763-2633d8d4ea29?w=400&q=80' },
+  { label: 'Sedans', image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400&q=80' },
+  { label: 'Economy Cars', image: 'https://images.unsplash.com/photo-1623869675781-80aa31012a5a?w=400&q=80' },
+  { label: 'Electric Vehicles', image: 'https://images.unsplash.com/photo-1561580125-028ee3bd62eb?w=400&q=80' },
+  { label: 'Limousines', image: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=400&q=80' },
+  { label: 'Vans & Minibuses', image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&q=80' },
 ]
 
 const stats = [
@@ -107,7 +107,15 @@ export default function Home() {
                 to={`/cars?category=${encodeURIComponent(cat.label)}`}
                 className="category-card"
               >
-                <span className="category-card__icon">{cat.icon}</span>
+                <div className="category-card__img-wrap">
+                  <img
+                    src={cat.image}
+                    alt={cat.label}
+                    className="category-card__img"
+                    loading="lazy"
+                    onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400&q=80' }}
+                  />
+                </div>
                 <span className="category-card__label">{cat.label}</span>
               </Link>
             ))}
